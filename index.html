@@ -16,6 +16,7 @@
       --muted: #5C6B63;
       --ring-left: #0E7C7C;   /* bluish green */
       --ring-right: #2F8C3E;  /* yellowish green */
+      --brand: #1B4636;       /* ink with a green hue */
       --bg-dots-opacity: 0.5;
       --bg-dots-blur: 9px;
     }
@@ -26,6 +27,7 @@
         --muted: #8FA39A;
         --ring-left: #35C9BD;
         --ring-right: #45C95F;
+        --brand: #BFE3CD;
         --bg-dots-opacity: 0.4;
       }
     }
@@ -54,16 +56,22 @@
       filter: blur(var(--bg-dots-blur));
     }
     main, footer { position: relative; z-index: 1; }
-    .mark { width: 104px; height: auto; }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+    }
+    .mark { width: 42px; height: auto; }
     .mark .ring-left { stroke: var(--ring-left); }
     .mark .ring-right { stroke: var(--ring-right); }
     .mark .arrow { fill: var(--ring-right); }
     .mark, h1, .tagline { filter: drop-shadow(0 0 8px var(--bg)); }
     h1 {
-      margin-top: 20px;
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.03em;
+      color: var(--brand);
     }
     p.tagline {
       margin-top: 10px;
@@ -85,12 +93,14 @@
 <body>
   <canvas id="bg-dots" aria-hidden="true"></canvas>
   <main>
-    <svg class="mark" viewBox="0 0 44 40" fill="none" aria-hidden="true">
-      <circle class="ring-left" cx="14" cy="20" r="12" stroke-width="2.75"/>
-      <path class="ring-right" d="M33 9.61 A12 12 0 1 0 39 20" stroke-width="2.75" stroke-linecap="round"/>
-      <path class="arrow" d="M39 14 L42.2 19.8 L35.8 19.8 Z"/>
-    </svg>
-    <h1>repli.tech</h1>
+    <div class="brand-row">
+      <svg class="mark" viewBox="0 0 44 40" fill="none" aria-hidden="true">
+        <circle class="ring-left" cx="14" cy="20" r="12" stroke-width="2.75"/>
+        <path class="ring-right" d="M33 9.61 A12 12 0 1 0 39 20" stroke-width="2.75" stroke-linecap="round"/>
+        <path class="arrow" d="M39 14 L42.2 19.8 L35.8 19.8 Z"/>
+      </svg>
+      <h1>repli.tech</h1>
+    </div>
     <p class="tagline">protein nanotechnology</p>
   </main>
   <footer>© 2026 Replication Technologies</footer>
@@ -121,9 +131,9 @@
             dots.push({
               x: c * SPACING + (r % 2) * SPACING / 2 - SPACING / 2,
               y: r * rowH - rowH / 2,
-              h0: 125 + Math.random() * 40,          // green ~125-165
-              amp: 12 + Math.random() * 10,          // hue swing
-              speed: 0.08 + Math.random() * 0.08,    // rad/s, period ~35-80s
+              h0: 115 + Math.random() * 60,          // green ~115-175
+              amp: 35 + Math.random() * 20,          // hue swing
+              speed: 0.25 + Math.random() * 0.2,     // rad/s, period ~14-25s
               phase: Math.random() * Math.PI * 2,
               light: LIGHT + Math.random() * 6
             });
