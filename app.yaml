@@ -1,0 +1,13 @@
+name: repli-tech
+region: nyc
+domains:
+  - domain: repli.tech
+    type: PRIMARY
+  - domain: www.repli.tech
+    type: ALIAS
+static_sites:
+  - name: web
+    git:
+      branch: main
+      repo_clone_url: https://github.com/oxpsi/repli-tech-site
+    output_dir: /
