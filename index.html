@@ -16,7 +16,7 @@
       --muted: #5C6B63;
       --ring-left: #0E7C7C;   /* bluish green */
       --ring-right: #2F8C3E;  /* yellowish green */
-      --brand: #1B4636;       /* ink with a green hue */
+      --brand: #0E7C4F;       /* rich green */
       --bg-dots-opacity: 0.5;
       --bg-dots-blur: 9px;
     }
@@ -27,7 +27,7 @@
         --muted: #8FA39A;
         --ring-left: #35C9BD;
         --ring-right: #45C95F;
-        --brand: #BFE3CD;
+        --brand: #35D0A0;
         --bg-dots-opacity: 0.4;
       }
     }
@@ -55,38 +55,28 @@
       opacity: var(--bg-dots-opacity);
       filter: blur(var(--bg-dots-blur));
     }
-    main, footer { position: relative; z-index: 1; }
+    main { position: relative; z-index: 1; }
     .brand-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 13px;
+      gap: 16px;
     }
-    .mark { width: 42px; height: auto; }
+    .mark { width: 56px; height: auto; }
     .mark .ring-left { stroke: var(--ring-left); }
     .mark .ring-right { stroke: var(--ring-right); }
     .mark .arrow { fill: var(--ring-right); }
     .mark, h1, .tagline { filter: drop-shadow(0 0 8px var(--bg)); }
+    .brand-text { text-align: left; }
     h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
       color: var(--brand);
     }
     p.tagline {
-      margin-top: 10px;
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 34ch;
-    }
-    footer {
-      position: fixed;
-      bottom: 22px;
-      left: 0;
-      right: 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.7;
     }
   </style>
 </head>
@@ -99,11 +89,13 @@
         <path class="ring-right" d="M33 9.61 A12 12 0 1 0 39 20" stroke-width="2.75" stroke-linecap="round"/>
         <path class="arrow" d="M39 14 L42.2 19.8 L35.8 19.8 Z"/>
       </svg>
-      <h1>repli.tech</h1>
+      <div class="brand-text">
+        <h1>repli.tech</h1>
+        <p class="tagline">protein nanotechnology</p>
+      </div>
     </div>
-    <p class="tagline">protein nanotechnology</p>
   </main>
-  <footer>© 2026 Replication Technologies</footer>
+
 
   <script>
     (function () {
